@@ -163,7 +163,7 @@ fn main() {
         }
     };
 
-    if !matches.is_present("disable-drop-privileges") {
+    if matches.is_present("disable-drop-privileges") {
         if let Err(e) = drop_privileges() {
             tracing::error!(message = "Failed to drop privileges", error = ?e);
             sock1.send(&[0]).unwrap();
